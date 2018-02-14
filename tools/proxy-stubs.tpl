@@ -146,7 +146,7 @@ public:
      */
 
 {{#FOR_EACH_SIGNAL}}
-    virtual void {{SIGNAL_NAME}}({{#CONST_SIGNAL_ARG_LIST}}{{SIGNAL_ARG_DECL}}{{#CONST_SIGNAL_ARG_LIST_separator}}, {{/CONST_SIGNAL_ARG_LIST_separator}}{{/CONST_SIGNAL_ARG_LIST}}) = 0;
+    virtual void {{SIGNAL_NAME}}({{#CONST_SIGNAL_ARG_LIST}}{{SIGNAL_ARG_DECL}}{{#CONST_SIGNAL_ARG_LIST_separator}}, {{/CONST_SIGNAL_ARG_LIST_separator}}{{/CONST_SIGNAL_ARG_LIST}}) {}
 {{/FOR_EACH_SIGNAL}}
 
 {{BI_NEWLINE}}protected:
