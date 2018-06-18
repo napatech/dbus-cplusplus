@@ -27,6 +27,9 @@ public:
         register_method({{CLASS_NAME}}_adaptor, {{METHOD_NAME}}, _{{METHOD_NAME}}_stub);
 {{/FOR_EACH_METHOD}}
     }
+    virtual ~{{CLASS_NAME}}_adaptor()
+    {
+    }
 
     const ::DBus::IntrospectedInterface *introspect() const
     {
