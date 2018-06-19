@@ -302,7 +302,9 @@ void Document::Expat::character_data_handler(void *data, const XML_Char *chars, 
 	while (isspace(chars[y]) && y > 0) --y;
 	while (isspace(chars[x]) && x < y) ++x;
 
-	nod->cdata = std::string(chars, x, y+1);
+        const auto begin = chars + x;
+        const auto end = chars + y + 1;
+        nod->cdata = std::string(begin, end);
 }
 
 void Document::Expat::end_element_handler(void *data, const XML_Char *name)
