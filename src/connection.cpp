@@ -82,7 +82,6 @@ Connection::Private::~Private()
 void Connection::Private::init()
 {
 	dbus_connection_ref(conn);
-	dbus_connection_ref(conn);	//todo: the library has to own another reference
 
 	disconn_filter = new Callback<Connection::Private, bool, const Message &>(
 		this, &Connection::Private::disconn_filter_function
