@@ -141,6 +141,8 @@ gboolean Glib::BusWatch::watch_handler(gpointer data)
 	Glib::BusWatch *w = reinterpret_cast<Glib::BusWatch *>(data);
 
 	BusSource *io = (BusSource *)(w->_source);
+	if (!io)
+		return G_SOURCE_REMOVE;
 
 	int flags = 0;
 	if (io->poll.revents &G_IO_IN)
@@ -154,7 +156,7 @@ gboolean Glib::BusWatch::watch_handler(gpointer data)
 
 	w->handle(flags);
 
-	return TRUE;
+	return G_SOURCE_CONTINUE;
 }
 
 void Glib::BusWatch::_enable()
